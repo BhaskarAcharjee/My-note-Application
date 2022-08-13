@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "my_notes")
+
 public class Note {
     private String title;
     private String disp;
@@ -32,11 +33,12 @@ public class Note {
         this.title = title;
     }
 
+    public void setDisp(String disp) {
+        this.disp = disp;
+    }
+
     public String getDisp() {
         return disp;
     }
 
-    public void setDisp(String disp) {
-        this.disp = disp;
-    }
 }

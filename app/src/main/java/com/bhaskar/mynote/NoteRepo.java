@@ -15,20 +15,11 @@ public class NoteRepo {
     public NoteRepo(Application application) {
        NoteDatabase noteDatabase = NoteDatabase.getInstance(application);
        noteDao=noteDatabase.noteDao();
-       notelist=noteDao.getAlldata();
+       notelist=noteDao.getAllData();
     }
 
     public void insertData(Note note){
         new InsertTask(noteDao).execute(note);
-    }
-    public void updateData(Note note){
-        new UpdateTask(noteDao).execute(note);
-    }
-    public void deleteData(Note note){
-        new DeleteTask(noteDao).execute(note);
-    }
-    public LiveData<List<Note>> getAlldata(){
-        return notelist;
     }
     public static class InsertTask extends AsyncTask<Note,Void,Void>{
         private NoteDao noteDao;
@@ -43,6 +34,10 @@ public class NoteRepo {
             return null;
         }
     }
+
+    public void updateData(Note note){
+        new UpdateTask(noteDao).execute(note);
+    }
     public static class UpdateTask extends AsyncTask<Note,Void,Void>{
         private NoteDao noteDao;
 
@@ -52,9 +47,13 @@ public class NoteRepo {
 
         @Override
         protected Void doInBackground(Note... notes) {
-            noteDao.insert(notes[0]);
+            noteDao.update(notes[0]);
             return null;
         }
+    }
+
+    public void deleteData(Note note){
+        new DeleteTask(noteDao).execute(note);
     }
     public static class DeleteTask extends AsyncTask<Note,Void,Void>{
         private NoteDao noteDao;
@@ -65,9 +64,12 @@ public class NoteRepo {
 
         @Override
         protected Void doInBackground(Note... notes) {
-            noteDao.insert(notes[0]);
+            noteDao.delete(notes[0]);
             return null;
         }
     }
 
+    public LiveData<List<Note>> getAllData(){
+        return notelist;
+    }
 }

@@ -1,8 +1,13 @@
 package com.bhaskar.mynote;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +16,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bhaskar.mynote.databinding.ActivityMainBinding;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
@@ -31,6 +38,30 @@ private NoteViewModel noteViewModel;
                 startActivityForResult(intent,1);
             }
         });
+
+        binding.Rv.setLayoutManager(new LinearLayoutManager(this));
+        binding.Rv.setHasFixedSize(true);
+        RvAdapter adapter= new RvAdapter();
+        binding.Rv.setAdapter(adapter);
+
+        noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
+            @Override
+            public void onChanged(List<Note> notes) {
+                adapter.submitList(notes);
+            }
+        });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            noteViewModel.delete(adapter.getNote(viewHolder.getAdapterPosition()));
+            }
+        }).attachToRecyclerView(binding.Rv);
     }
 
     @Override

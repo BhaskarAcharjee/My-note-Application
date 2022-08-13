@@ -14,7 +14,7 @@ public class NoteViewModel extends AndroidViewModel {
     public NoteViewModel(@NonNull Application application) {
         super(application);
         noteRepo = new NoteRepo(application);
-        notelist =noteRepo.getAlldata();
+        notelist =noteRepo.getAllData();
     }
 
     public void insert(Note note){
@@ -26,7 +26,7 @@ public class NoteViewModel extends AndroidViewModel {
     public void delete(Note note){
         noteRepo.deleteData(note);
     }
-    public LiveData<List<Note>> getAlldata(){
+    public LiveData<List<Note>> getAllNotes(){
         return notelist;
     }
 
