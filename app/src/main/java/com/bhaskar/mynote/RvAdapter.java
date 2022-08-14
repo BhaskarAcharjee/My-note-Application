@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bhaskar.mynote.databinding.EachRvBinding;
 
-import javax.security.auth.callback.Callback;
-
 public class RvAdapter extends ListAdapter<Note,RvAdapter.ViewHolder> {
 
     public RvAdapter(){

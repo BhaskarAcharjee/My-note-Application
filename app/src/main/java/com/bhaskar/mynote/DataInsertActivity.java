@@ -17,6 +17,8 @@ ActivityDataInsertBinding binding;
         binding = ActivityDataInsertBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        String type=getIntent().getStringExtra("type");
+
         binding.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,5 +29,11 @@ ActivityDataInsertBinding binding;
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(DataInsertActivity.this,MainActivity.class));
     }
 }

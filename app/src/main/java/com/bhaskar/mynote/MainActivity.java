@@ -1,5 +1,10 @@
 package com.bhaskar.mynote;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,12 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.Toast;
 
 import com.bhaskar.mynote.databinding.ActivityMainBinding;
 
@@ -59,10 +58,17 @@ private NoteViewModel noteViewModel;
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            noteViewModel.delete(adapter.getNote(viewHolder.getAdapterPosition()));
+                if (direction == ItemTouchHelper.RIGHT) {
+                    noteViewModel.delete(adapter.getNote(viewHolder.getAdapterPosition()));
+                    Toast.makeText(MainActivity.this, "Deleting Notes", Toast.LENGTH_SHORT).show();
+                } else {
+//                    both condition delete note (Updating not enabled still)
+                    noteViewModel.delete(adapter.getNote(viewHolder.getAdapterPosition()));
+                    Toast.makeText(MainActivity.this, "Updating Notes", Toast.LENGTH_SHORT).show();
+                }
             }
-        }).attachToRecyclerView(binding.Rv);
-    }
+            }).attachToRecyclerView(binding.Rv);
+        }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
