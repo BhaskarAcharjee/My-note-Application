@@ -3,7 +3,6 @@ package com.bhaskar.mynote;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.GridLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bhaskar.mynote.databinding.ActivityMainBinding;
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -42,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 //      Scroll Recyclerview in Main_activity (Vertical)
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.Rv);
-        recyclerView.setLayoutManager(manager);
+//        LinearLayoutManager manager = new LinearLayoutManager(this);
+//        manager.setOrientation(LinearLayoutManager.VERTICAL);
+//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.Rv);
+//        recyclerView.setLayoutManager(manager);
 
 
-        binding.Rv.setLayoutManager(new LinearLayoutManager(this));
+        binding.Rv.setLayoutManager(new GridLayoutManager(this,2));
         binding.Rv.setHasFixedSize(true);
         RvAdapter adapter = new RvAdapter();
         binding.Rv.setAdapter(adapter);

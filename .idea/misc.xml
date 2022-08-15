@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/outline_shape.xml" value="0.233" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/shape.xml" value="0.233" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/solid_shape.xml" value="0.1075" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/activity_data_insert.xml" value="0.20689655172413793" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/activity_sp.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/each_rv.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/each_rv.xml" value="0.19672131147540983" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/shadow_background.xml" value="0.24592391304347827" />
       </map>
     </option>
