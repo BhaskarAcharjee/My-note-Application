@@ -17,7 +17,6 @@ ActivityDataInsertBinding binding;
         binding = ActivityDataInsertBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String type=getIntent().getStringExtra("type");
 
         binding.add.setOnClickListener(new View.OnClickListener() {
             @Override
