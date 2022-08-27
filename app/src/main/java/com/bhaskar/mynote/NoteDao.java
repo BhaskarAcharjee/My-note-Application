@@ -9,8 +9,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
-   @Dao
-   public interface NoteDao {
+@Dao
+public interface NoteDao {
    @Insert
    public void insert(Note note);
    @Update

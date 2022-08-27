@@ -50,7 +50,7 @@ public class DataInsertActivity extends AppCompatActivity {
             });
         }
     }
-//  Back from Add Note Page to Main Page
+    //  Back from Add Note Page to Main Page
     @Override
     public void onBackPressed() {
         super.onBackPressed();

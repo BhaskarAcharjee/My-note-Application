@@ -13,9 +13,9 @@ public class NoteRepo {
     private LiveData<List<Note>> notelist;
 
     public NoteRepo(Application application) {
-       NoteDatabase noteDatabase = NoteDatabase.getInstance(application);
-       noteDao=noteDatabase.noteDao();
-       notelist=noteDao.getAllData();
+        NoteDatabase noteDatabase = NoteDatabase.getInstance(application);
+        noteDao=noteDatabase.noteDao();
+        notelist=noteDao.getAllData();
     }
 
     public void insertData(Note note){
