@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2555" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2425" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2425" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2555" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/ic_save.xml" value="0.253" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/outline_shape.xml" value="0.233" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/shape.xml" value="0.233" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/drawable/solid_shape.xml" value="0.1075" />
@@ -12,6 +15,7 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/activity_sp.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/each_rv.xml" value="0.19672131147540983" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/notes_list.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/read_note.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/MyNote/app/src/main/res/layout/shadow_background.xml" value="0.24592391304347827" />
       </map>
