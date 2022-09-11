@@ -5,6 +5,7 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
         return new NotesViewHolder(LayoutInflater.from(context).inflate(R.layout.notes_list, parent, false));
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull NotesViewHolder holder, int position) {
@@ -47,6 +49,12 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
 
         holder.textView_date.setText(list.get(position).getDate());
         holder.textView_date.setSelected(true);
+
+        if (list.get(position).isPinned()){
+            holder.imageView_pin.setImageResource(R.drawable.ic_baseline_push_pin_24);
+        }else {
+            holder.imageView_pin.setImageResource(0);
+        }
 
         int color_code = getRandomColor();
         holder.notes_container.setCardBackgroundColor(holder.itemView.getResources().getColor(color_code,null));
@@ -89,8 +97,10 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesViewHolder> {
 
 //  ViewHolder Class
 class NotesViewHolder extends RecyclerView.ViewHolder{
+
     CardView notes_container;
     TextView textView_title, textView_notes, textView_date;
+    ImageView imageView_pin;
 
     public NotesViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -98,5 +108,6 @@ class NotesViewHolder extends RecyclerView.ViewHolder{
         textView_title = itemView.findViewById(R.id.textView_title);
         textView_notes = itemView.findViewById(R.id.textView_notes);
         textView_date = itemView.findViewById(R.id.textView_date);
+        imageView_pin = itemView.findViewById(R.id.imageView_pin);
     }
 }

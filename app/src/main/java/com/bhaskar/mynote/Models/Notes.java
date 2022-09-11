@@ -7,14 +7,13 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 
 @Entity(tableName = "notes")
-
 public class Notes implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     int ID = 0;
 
-   @ColumnInfo(name = "title")
-   String title = "";
+    @ColumnInfo(name = "title")
+    String title = "";
 
     @ColumnInfo(name = "notes")
     String notes = "";
@@ -22,6 +21,8 @@ public class Notes implements Serializable {
     @ColumnInfo(name = "date")
     String date = "";
 
+    @ColumnInfo(name = "pinned")
+    boolean pinned = false;
 
     public int getID() {
         return ID;
@@ -53,5 +54,13 @@ public class Notes implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public boolean isPinned() {
+        return pinned;
+    }
+
+    public void setPinned(boolean pinned) {
+        this.pinned = pinned;
     }
 }

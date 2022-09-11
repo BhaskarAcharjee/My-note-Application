@@ -10,10 +10,10 @@ import com.bhaskar.mynote.Models.Notes;
 
 @Database(entities = Notes.class,version = 1,exportSchema = false)
 public abstract class NoteDatabase extends RoomDatabase {
-    public static NoteDatabase noteDatabase;
-    public static String databaseName = "note_database";
-    public abstract NoteDao noteDao();
-    public static synchronized NoteDatabase getInstance(Context context){
+    private static NoteDatabase noteDatabase;
+    private static String databaseName = "note_database";
+
+    public synchronized static NoteDatabase getInstance(Context context){
         if (noteDatabase==null){
             noteDatabase = Room.databaseBuilder(context.getApplicationContext()
                     ,NoteDatabase.class,databaseName)
@@ -23,4 +23,5 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
         return noteDatabase;
     }
+    public abstract NoteDao noteDao();
 }
